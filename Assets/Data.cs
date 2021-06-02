@@ -10,6 +10,7 @@ public class Data : MonoBehaviour
     static Data mInstance = null;
     public bool DEBUG;
     public string newScene;
+    public DatabaseManager databaseManager;
 
     public static Data Instance
     {
