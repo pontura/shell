@@ -11,6 +11,8 @@ public class Data : MonoBehaviour
     public bool DEBUG;
     public string newScene;
     public DatabaseManager databaseManager;
+    public SpreadsheetLoader spreadsheetLoader;
+    public ContentData contentData;
 
     public static Data Instance
     {
@@ -46,5 +48,13 @@ public class Data : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+    }
+    private void Start()
+    {
+        GetComponent<DataLoader>().LoadData(OnDone);
+    }
+    void OnDone()
+    {
+        print("all loaded");
     }
 }

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4000012892830758}
   - component: {fileID: 114000013950545636}
   - component: {fileID: 6758636271764717901}
+  - component: {fileID: 7960503113336087370}
+  - component: {fileID: 3216945410396394613}
   m_Layer: 0
   m_Name: Data
   m_TagString: Untagged
@@ -47,6 +49,8 @@ MonoBehaviour:
   DEBUG: 0
   newScene: 
   databaseManager: {fileID: 6758636271764717901}
+  spreadsheetLoader: {fileID: 3216945410396394613}
+  contentData: {fileID: 7960503113336087370}
 --- !u!114 &6758636271764717901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,5 +61,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d099d98a3f4b66242b328f8fbf7d2aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userData:
+    id: 0
+    score: 0
+    nombre: 
+    apellido: 
+    colegio: 
+  hiscore:
+    all: []
+--- !u!114 &7960503113336087370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c96bcf046843bc4a9ad12b6f7c2515d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://docs.google.com/spreadsheets/d/e/2PACX-1vQhmIL5mhtKOgxdEdKZPFccTX82gUjgjb1SKPtbzPTe-kEsDUkA0JWNwFYgoM-1mdnWMWF369EAN0P8/pub?gid=0&single=true&output=tsv
+  content: []
+  activeContent:
+    situacion: 
+    situaciones: []
+--- !u!114 &3216945410396394613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a3fe12ee2f96140b208b5740abeae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
