@@ -17,7 +17,7 @@ public class ContentData : DataLoader
     [System.Serializable]
     public class SituacionData
     {
-        public int value;
+        public ProgressData.Result value;
         public string accion;
         public string feedback;
         public string feedbackNo;
@@ -60,11 +60,11 @@ public class ContentData : DataLoader
                     else
                     {
                         if (colID == 1 && value != "")
-                            sLine.value = 1;
+                            sLine.value = ProgressData.Result.BIEN;
                         if (colID == 2 && value != "")
-                            sLine.value = 2;
+                            sLine.value = ProgressData.Result.NEUTRO;
                         if (colID == 3 && value != "")
-                            sLine.value = 3;
+                            sLine.value = ProgressData.Result.MAL;
 
                         if (colID == 4 && value != "")
                             sLine.accion = value;

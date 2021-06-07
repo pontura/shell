@@ -13,6 +13,7 @@ public class Data : MonoBehaviour
     public DatabaseManager databaseManager;
     public SpreadsheetLoader spreadsheetLoader;
     public ContentData contentData;
+    public ProgressData progressData;
 
     public static Data Instance
     {

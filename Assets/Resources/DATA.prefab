@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6758636271764717901}
   - component: {fileID: 7960503113336087370}
   - component: {fileID: 3216945410396394613}
+  - component: {fileID: 3846259558190400992}
   m_Layer: 0
   m_Name: Data
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MonoBehaviour:
   databaseManager: {fileID: 6758636271764717901}
   spreadsheetLoader: {fileID: 3216945410396394613}
   contentData: {fileID: 7960503113336087370}
+  progressData: {fileID: 3846259558190400992}
 --- !u!114 &6758636271764717901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,3 +102,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a3fe12ee2f96140b208b5740abeae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3846259558190400992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7d8cae0bd79dd4281addcfd95dbfab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedbackData: []
