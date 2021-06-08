@@ -8,9 +8,10 @@ public class FeedbackScreen : ScreenMain
     public Text field;
     public List<ProgressData.FeedbackData> wrong;
     public List<ProgressData.FeedbackData> innecesary;
-    
+    bool done;
     public override void Init()
     {
+        done = false;
         wrong.Clear();
         innecesary.Clear();
         field.text = "";
@@ -46,6 +47,8 @@ public class FeedbackScreen : ScreenMain
     }
     public void Next()
     {
-        Events.GotoTo("GameScreen");
+        if (done) return;
+        done = true;
+        Events.GotoTo("Map");
     }
 }

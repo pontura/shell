@@ -11,14 +11,15 @@ public class ScreensManager : MonoBehaviour
     private void Awake()
     {
         Events.GotoTo += GotoTo;
+        Events.HideOldScreens += HideOldScreens;
     }
     private void OnDestroy()
     {
         Events.GotoTo -= GotoTo;
+        Events.HideOldScreens -= HideOldScreens;
     }
     void GotoTo(string screenName)
     {
-        Reset();
         screenActive = GetScreen(screenName);
         screenActive.Show();
     }
@@ -35,10 +36,15 @@ public class ScreensManager : MonoBehaviour
         Reset();
         Loop();
     }
+    void HideOldScreens()
+    {
+        Reset();
+    }
     private void Reset()
     {
         foreach (ScreenMain sm in all)
-            sm.gameObject.SetActive(false);
+            if(sm != screenActive)
+                sm.gameObject.SetActive(false);
     }
     void Loop()
     {
@@ -49,6 +55,6 @@ public class ScreensManager : MonoBehaviour
     }
     void Init()
     {
-        GotoTo("GameScreen");
+        GotoTo(initialScreen.name);
     }
 }
