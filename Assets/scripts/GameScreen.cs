@@ -24,8 +24,12 @@ public class GameScreen : ScreenMain
             texts.Add(d.accion);
         listManager.SetTexts(texts);
 
+        Invoke("DelayedConstructor", 2);
+    }
+    void DelayedConstructor()
+    {
+
         listManager.Init(content.situaciones, OnClicked);
-       
     }
     void OnClicked(int id)
     {
