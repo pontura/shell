@@ -12,6 +12,7 @@ public class ButtonStandard : MonoBehaviour
     public Color idleColor;
     public bool selected;
 
+
     public void Init(int id, System.Action<int> OnClicked, ListManager.EventToListen eventToListen)
     {
         SetText( id.ToString( ));

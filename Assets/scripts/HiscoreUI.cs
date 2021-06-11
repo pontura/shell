@@ -6,9 +6,11 @@ public class HiscoreUI : MonoBehaviour
 {
     public HiscoreLine line;
     public Transform container;
+    public int totalResults;
 
-    void Start()
+    public void Init()
     {
+        Utils.RemoveAllChildsIn(container);
         LoopTillLoaded();
     }
     void LoopTillLoaded()
@@ -23,6 +25,8 @@ public class HiscoreUI : MonoBehaviour
         int puesto = 1;
         foreach (DatabaseManager.UsersData data in Data.Instance.databaseManager.hiscore.all)
         {
+            if (puesto > totalResults)
+                return;
             HiscoreLine hl = Instantiate(line, container);
             hl.transform.localScale = Vector3.one;
             hl.Init(puesto, data);
