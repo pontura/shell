@@ -11,6 +11,9 @@ public class ListManager : MonoBehaviour
     System.Action<int> Onclicked;
     public bool isActive;
     public EventToListen eventToListen;
+    public float delay_to_appear = 0;
+    List<string> texts;
+
     public enum EventToListen
     {
         RELEASE,
@@ -30,29 +33,31 @@ public class ListManager : MonoBehaviour
         buttons = new List<ButtonStandard>();
         this.Onclicked = Onclicked;
         int id = 0;
-        int n = arr.Count;
-        for (int i = 0; i < n; i++)
+        int total = arr.Count;
+        StartCoroutine(AddCascade(id, total, delay_to_appear));
+    }
+    IEnumerator AddCascade(int id, int total, float delay)
+    {
+        for (int i = 0; i < total; i++)
         {
             AddButton(id);
             id++;
+            yield return new WaitForSeconds(delay);
         }
     }
     void AddButton(int id)
     {
         ButtonStandard newButton = Instantiate(button, container);
         newButton.Init(id, OnEvent, eventToListen);
+
+        if(texts != null && texts.Count>=id-1)
+            newButton.SetText(texts[id]);
+
         buttons.Add(newButton);
     }
     public void SetTexts(List<string> texts)
     {
-        int id = 0;
-        foreach (ButtonStandard b in buttons)
-        {
-            if (id >= texts.Count) return;
-            string t = texts[id];
-            b.SetText(texts[id]);
-            id++;
-        }
+        this.texts = texts;
     }
     void ResetButtons()
     {

@@ -27,8 +27,10 @@ public class ButtonStandard : MonoBehaviour
                 pointerDown.callback.AddListener((e) => OnClicked(id));
                 triggerDown.triggers.Add(pointerDown);
                 break;
-        }            
+        }
+        OnInit();
     }
+    public virtual void OnInit() { }
     public void SetText(string text)
     {
         field.text = text;

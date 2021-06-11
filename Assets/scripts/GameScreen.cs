@@ -18,10 +18,14 @@ public class GameScreen : ScreenMain
         done = false;
         content = Data.Instance.contentData.content[id];
         titleField.text = content.situacion;
-        listManager.Init(content.situaciones, OnClicked);
+
         List<string> texts = new List<string>();
-        foreach (ContentData.SituacionData d in content.situaciones) texts.Add(d.accion);
+        foreach (ContentData.SituacionData d in content.situaciones)
+            texts.Add(d.accion);
         listManager.SetTexts(texts);
+
+        listManager.Init(content.situaciones, OnClicked);
+       
     }
     void OnClicked(int id)
     {
