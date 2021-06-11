@@ -11,10 +11,6 @@ public class IntroScreen : ScreenMain
     {
         anim.Play("off");
         parallax.StopInFade();
-        Invoke("GotoNext", 3);
-    }
-    void GotoNext()
-    {
         Events.GotoTo("Welcome");
     }
 }

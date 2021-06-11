@@ -12,7 +12,7 @@ public class Welcome : ScreenMain
     }
     IEnumerator Timer()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         Events.HideOldScreens();
     }
     public void GotoNext()
