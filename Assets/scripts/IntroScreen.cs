@@ -15,6 +15,6 @@ public class IntroScreen : ScreenMain
     }
     void GotoNext()
     {
-        Events.GotoTo("Map");
+        Events.GotoTo("Welcome");
     }
 }

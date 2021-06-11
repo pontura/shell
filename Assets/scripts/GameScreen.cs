@@ -25,6 +25,7 @@ public class GameScreen : ScreenMain
         listManager.SetTexts(texts);
 
         Invoke("DelayedConstructor", 2);
+
     }
     void DelayedConstructor()
     {
@@ -55,12 +56,12 @@ public class GameScreen : ScreenMain
     {
         Data.Instance.progressData.AddNewSituationResult();
         int _id = 0;
-        foreach (ButtonStandard b in listManager.GetAllButtons())
+        foreach (ActionButton b in listManager.GetAllButtons())
         {
+            b.Feedback();
             ContentData.SituacionData situacion = content.situaciones[_id];
             Data.Instance.progressData.AddFeedBack(situacion, b.selected);
             _id++;
-            yield return new WaitForSeconds(0.5f);
 
             if (b.selected)
             {
@@ -76,6 +77,8 @@ public class GameScreen : ScreenMain
                 if (situacion.value == ProgressData.Result.BIEN)
                     b.GetComponentInChildren<SimpleFeedback>().SetState(SimpleFeedback.states.WRONG, 1000);
             }
+
+            yield return new WaitForSeconds(0.5f);
         }
         Events.GotoTo("FeedbackScreen");
     }

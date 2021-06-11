@@ -7,8 +7,11 @@ public class ActionButton : ButtonStandard
 {
     public Animation anim;
 
-
     public override void OnInit() { 
         anim.Play("ready");
+    }
+    public void Feedback()
+    {
+        anim.Play("feedback");
     }
 }
