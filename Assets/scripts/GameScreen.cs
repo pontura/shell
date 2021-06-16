@@ -11,8 +11,21 @@ public class GameScreen : ScreenMain
     public ListManager listManager;
     public Button NextButton;
     bool done;
+    public bool tutorialDone;
+    public GameObject tutorial;
+    public ButtonStandard tutorialButton;
 
+    private void Start()
+    {
+        tutorial.SetActive(false);
+        tutorialButton.Init(0, OnTutorialClicked, ListManager.EventToListen.RELEASE);
+    }
+    void OnTutorialClicked(int buttonID)
+    {
+        tutorial.SetActive(false);
+    }
     public override void Init() {
+        tutorial.SetActive(false);
         SetNextButton(false);
         listManager.ResetAll();
         done = false;
@@ -29,7 +42,11 @@ public class GameScreen : ScreenMain
     }
     void DelayedConstructor()
     {
-
+        if(!tutorialDone)
+        {
+            tutorial.SetActive(true);
+            tutorialDone = true;
+        }
         listManager.Init(content.situaciones, OnClicked);
     }
     void OnClicked(int id)

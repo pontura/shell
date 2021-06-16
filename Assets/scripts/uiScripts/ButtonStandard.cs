@@ -15,7 +15,8 @@ public class ButtonStandard : MonoBehaviour
 
     public void Init(int id, System.Action<int> OnClicked, ListManager.EventToListen eventToListen)
     {
-        SetText( id.ToString( ));
+        if(id>0)
+            SetText( id.ToString( ));
         switch (eventToListen)
         {
             case ListManager.EventToListen.RELEASE:

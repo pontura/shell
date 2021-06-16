@@ -17,8 +17,8 @@ public class Welcome : ScreenMain
     }
     public void GotoNext()
     {
-        anim.Play("off");
-        Events.GotoTo("GameScreen");
+        //anim.Play("off");
+        Events.GotoTo("Map");
         Invoke("Reset", 2);
     }
     void Reset()

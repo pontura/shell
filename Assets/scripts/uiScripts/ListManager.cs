@@ -13,6 +13,7 @@ public class ListManager : MonoBehaviour
     public EventToListen eventToListen;
     public float delay_to_appear = 0;
     List<string> texts;
+    bool allButtonsLoaded;
 
     public enum EventToListen
     {
@@ -29,6 +30,7 @@ public class ListManager : MonoBehaviour
 
     public void Init<T>(List<T> arr, System.Action<int> Onclicked)
     {
+        allButtonsLoaded = false;
         isActive = true;
         buttons = new List<ButtonStandard>();
         this.Onclicked = Onclicked;
@@ -44,6 +46,7 @@ public class ListManager : MonoBehaviour
             id++;
             yield return new WaitForSeconds(delay);
         }
+        allButtonsLoaded = true;
     }
     void AddButton(int id)
     {
@@ -66,6 +69,7 @@ public class ListManager : MonoBehaviour
     }
     void OnEvent(int id)
     {
+        if (!allButtonsLoaded) return;
         if (!isActive) return;
         if (selectionType != SelectionType.MULTIPLE_SELECT)
             ResetButtons();

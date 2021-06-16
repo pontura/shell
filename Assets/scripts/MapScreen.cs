@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class MapScreen : ScreenMain
 {
+    public float posOffset;
     public Image bgImage;
+    public GameObject mapAsset;
     public float fadeDuration = 2;
     public float carSpeed = 2;
     public GameObject map;
     public Car car;
     public GameObject[] points;
     int id = 0;
-    public Vector2 carOffset;
     public MapSignal mapSignal;
+    bool hasStarted;
 
     private void Start()
     {
@@ -23,38 +25,56 @@ public class MapScreen : ScreenMain
     }
     public override void Init()
     {
-        mapSignal.gameObject.SetActive(false);
         base.Init();
-        StartCoroutine(Transition());
+
+        if (!hasStarted)
+        {
+            hasStarted = true;
+            StartCoroutine(Transition(true));
+        }
+        else
+        {
+            mapSignal.gameObject.SetActive(false);
+            StartCoroutine(Transition(false));
+        }
     }
-    IEnumerator Transition()
+    IEnumerator Transition(bool isFirst)
     {
         car.SetState(false);
         bgImage.fillOrigin = 0;
 
-        Vector2 pos = points[id].transform.position; ;
-        pos.y += carOffset.y;
-        car.transform.position = pos;
-        id++;
+        float from = (points[id].transform.localPosition.x* -1) - posOffset;
+        float posTo = (points[id+1].transform.localPosition.x * -1) - posOffset;
+        
+        Vector2 pos = new Vector2(from, mapAsset.transform.localPosition.y);
+        mapAsset.transform.localPosition = pos;
+
+        map.SetActive(true);
 
         float i = 0;
-        while(i<1)
+        while (i < 1)
         {
             i += Time.deltaTime / fadeDuration;
             bgImage.fillAmount = i;
             yield return new WaitForEndOfFrame();
         }
-        map.SetActive(true);
-        yield return new WaitForSeconds(1);
-        car.SetState(true);
-        Events.HideOldScreens();
-        while (pos.x + carOffset.x < points[id].transform.position.x)
+
+        if (!isFirst)
         {
-            pos.x += Time.deltaTime * carSpeed;
-            car.transform.position = pos;
-            yield return new WaitForEndOfFrame();
+            id++;            
+            yield return new WaitForSeconds(1);
+            car.SetState(true);
+            Events.HideOldScreens();
+
+            while (mapAsset.transform.localPosition.x > posTo)
+            {
+                pos.x -= Time.deltaTime * carSpeed;
+                mapAsset.transform.localPosition = pos;
+                yield return new WaitForEndOfFrame();
+            }
         }
-        mapSignal.Init(id + "/" + points.Length, car.transform.position);        
+
+        mapSignal.Init((id+1) + "/" + points.Length, car.transform.position);
         car.SetState(false);
         yield return new WaitForSeconds(1.7f);
         Events.GotoTo("GameScreen");
