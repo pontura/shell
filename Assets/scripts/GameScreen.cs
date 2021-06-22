@@ -8,7 +8,7 @@ public class GameScreen : ScreenMain
     ContentData.Content content;
     public Text  titleField;
     public ListManager listManager;
-    public Button NextButton;
+    public ButtonStandard NextButton;
     bool done;
     public bool tutorialDone;
     public GameObject tutorial;
@@ -18,6 +18,8 @@ public class GameScreen : ScreenMain
     {
         tutorial.SetActive(false);
         tutorialButton.Init(0, OnTutorialClicked, ListManager.EventToListen.RELEASE);
+        NextButton.Init(0, Ready, ListManager.EventToListen.RELEASE);
+        NextButton.SetText("Listo!");
     }
     void OnTutorialClicked(int buttonID)
     {
@@ -59,7 +61,7 @@ public class GameScreen : ScreenMain
             }
         SetNextButton(false);
     }
-    public void Ready()
+    public void Ready(int id)
     {
         if (done) return;
         listManager.SetActive(false);
@@ -99,6 +101,6 @@ public class GameScreen : ScreenMain
     }
     void SetNextButton(bool interactable)
     {
-        NextButton.interactable = interactable;
+        NextButton.SetInteractable( interactable );
     }
 }

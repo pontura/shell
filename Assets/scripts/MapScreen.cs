@@ -8,9 +8,9 @@ public class MapScreen : ScreenMain
     public float posOffset;
     public Image bgImage;
     public GameObject mapAsset;
+    public GameObject mapAssetFront;
     public float fadeDuration = 2;
     public float carSpeed = 2;
-    public GameObject map;
     public Car car;
     public GameObject[] points;
     public MapSignal mapSignal;
@@ -56,8 +56,7 @@ public class MapScreen : ScreenMain
         
         Vector2 pos = new Vector2(from, mapAsset.transform.localPosition.y);
         mapAsset.transform.localPosition = pos;
-
-        map.SetActive(true);
+        mapAssetFront.transform.localPosition = pos;
 
         float i = 0;
         while (i < 1)
@@ -76,6 +75,7 @@ public class MapScreen : ScreenMain
             {
                 pos.x -= Time.deltaTime * carSpeed;
                 mapAsset.transform.localPosition = pos;
+                mapAssetFront.transform.localPosition = pos;
                 yield return new WaitForEndOfFrame();
             }
         }        

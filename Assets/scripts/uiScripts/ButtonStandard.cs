@@ -12,7 +12,6 @@ public class ButtonStandard : MonoBehaviour
     public Color idleColor;
     public bool selected;
 
-
     public void Init(int id, System.Action<int> OnClicked, ListManager.EventToListen eventToListen)
     {
         if(id>0)
@@ -44,5 +43,15 @@ public class ButtonStandard : MonoBehaviour
         else
             background.color = idleColor;
         selected = isActive;
+    }
+    public void SetInteractable(bool isActive)
+    {
+        Color color = idleColor;
+        if (isActive)
+            color.a = 1;
+        else
+            color.a = 0.5f;
+        background.color = color;
+        GetComponent<Button>().interactable = isActive;
     }
 }
