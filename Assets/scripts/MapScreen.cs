@@ -13,18 +13,27 @@ public class MapScreen : ScreenMain
     public GameObject map;
     public Car car;
     public GameObject[] points;
-    int id = 0;
+    public int id = 0;
     public MapSignal mapSignal;
     bool hasStarted;
+    public ButtonStandard nextButton;
 
     private void Start()
     {
-        
+        nextButton.Init(0, OnDone, ListManager.EventToListen.RELEASE);
+        nextButton.SetText("Resolver");
+        nextButton.gameObject.SetActive(false);
         foreach (GameObject go in points)
             go.GetComponent<Image>().enabled = false;
     }
+    void OnDone(int id)
+    {
+        StartCoroutine(Next());
+    }
     public override void Init()
     {
+        print("id " + id);
+        nextButton.gameObject.SetActive(false);
         base.Init();
 
         if (!hasStarted)
@@ -72,13 +81,18 @@ public class MapScreen : ScreenMain
                 mapAsset.transform.localPosition = pos;
                 yield return new WaitForEndOfFrame();
             }
-        }
-
-        mapSignal.Init((id+1) + "/" + points.Length, car.transform.position);
+        }        
+        string text = Data.Instance.contentData.content[id].situacion;
+        mapSignal.Init((id+1) + "/" + points.Length, text, car.transform.position);
         car.SetState(false);
-        yield return new WaitForSeconds(1.7f);
+        nextButton.gameObject.SetActive(true);      
+    }
+   IEnumerator Next()
+    {
+        nextButton.gameObject.SetActive(false);
         Events.GotoTo("GameScreen");
         bgImage.fillOrigin = 1;
+        float i = 1;
         while (i > 0)
         {
             i -= Time.deltaTime / fadeDuration;

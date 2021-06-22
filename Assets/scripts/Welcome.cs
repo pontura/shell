@@ -5,6 +5,7 @@ using UnityEngine;
 public class Welcome : ScreenMain
 {
     public Animation anim;
+    bool isDone;
 
     public override void Init()
     {
@@ -17,6 +18,8 @@ public class Welcome : ScreenMain
     }
     public void GotoNext()
     {
+        if (isDone) return;
+        isDone = true;
         //anim.Play("off");
         Events.GotoTo("Map");
         Invoke("Reset", 2);
