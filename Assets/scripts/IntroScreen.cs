@@ -25,4 +25,14 @@ public class IntroScreen : ScreenMain
         parallax.StopInFade();
         Events.GotoTo("Welcome");
     }
+    public void ShowBackgroundOnly()
+    {
+        gameObject.SetActive(true);
+        anim.Play("onlyBG");
+        parallax.Move();
+    }
+    public void AllOn()
+    {
+        anim.Play("all");
+    }
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 public class ContentData : DataLoader
 {
     public List<Content> content;
-    // [HideInInspector] 
-    public Content activeContent;
+    public int id;
 
     [System.Serializable]
     public class Content
@@ -22,7 +21,10 @@ public class ContentData : DataLoader
         public string feedback;
         public string feedbackNo;
     }
-
+    public void Next()
+    {
+        id++;
+    }
     public override void Reset()
     {
         content.Clear();

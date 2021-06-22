@@ -13,7 +13,6 @@ public class MapScreen : ScreenMain
     public GameObject map;
     public Car car;
     public GameObject[] points;
-    public int id = 0;
     public MapSignal mapSignal;
     bool hasStarted;
     public ButtonStandard nextButton;
@@ -32,7 +31,6 @@ public class MapScreen : ScreenMain
     }
     public override void Init()
     {
-        print("id " + id);
         nextButton.gameObject.SetActive(false);
         base.Init();
 
@@ -42,9 +40,10 @@ public class MapScreen : ScreenMain
             StartCoroutine(Transition(true));
         }
         else
-        {
+        {           
             mapSignal.gameObject.SetActive(false);
             StartCoroutine(Transition(false));
+            Data.Instance.contentData.Next();
         }
     }
     IEnumerator Transition(bool isFirst)
@@ -52,8 +51,8 @@ public class MapScreen : ScreenMain
         car.SetState(false);
         bgImage.fillOrigin = 0;
 
-        float from = (points[id].transform.localPosition.x* -1) - posOffset;
-        float posTo = (points[id+1].transform.localPosition.x * -1) - posOffset;
+        float from = (points[Data.Instance.contentData.id].transform.localPosition.x* -1) - posOffset;
+        float posTo = (points[Data.Instance.contentData.id + 1].transform.localPosition.x * -1) - posOffset;
         
         Vector2 pos = new Vector2(from, mapAsset.transform.localPosition.y);
         mapAsset.transform.localPosition = pos;
@@ -67,10 +66,8 @@ public class MapScreen : ScreenMain
             bgImage.fillAmount = i;
             yield return new WaitForEndOfFrame();
         }
-
         if (!isFirst)
-        {
-            id++;            
+        {       
             yield return new WaitForSeconds(1);
             car.SetState(true);
             Events.HideOldScreens();
@@ -82,8 +79,8 @@ public class MapScreen : ScreenMain
                 yield return new WaitForEndOfFrame();
             }
         }        
-        string text = Data.Instance.contentData.content[id].situacion;
-        mapSignal.Init((id+1) + "/" + points.Length, text, car.transform.position);
+        string text = Data.Instance.contentData.content[Data.Instance.contentData.id].situacion;
+        mapSignal.Init((Data.Instance.contentData.id + 1) + "/" + points.Length, text, car.transform.position);
         car.SetState(false);
         nextButton.gameObject.SetActive(true);      
     }

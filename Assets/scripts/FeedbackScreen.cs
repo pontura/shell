@@ -49,6 +49,9 @@ public class FeedbackScreen : ScreenMain
     {
         if (done) return;
         done = true;
-        Events.GotoTo("Map");
+        if(Data.Instance.contentData.id >= Data.Instance.contentData.content.Count)
+            Events.GotoTo("Register");
+       else
+            Events.GotoTo("Map");
     }
 }

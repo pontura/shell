@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GameScreen : ScreenMain
 {
-    public int id;
     ContentData.Content content;
     public Text  titleField;
     public ListManager listManager;
@@ -29,7 +28,7 @@ public class GameScreen : ScreenMain
         SetNextButton(false);
         listManager.ResetAll();
         done = false;
-        content = Data.Instance.contentData.content[id];
+        content = Data.Instance.contentData.content[Data.Instance.contentData.id];
         titleField.text = content.situacion;
 
         List<string> texts = new List<string>();
@@ -64,7 +63,6 @@ public class GameScreen : ScreenMain
     {
         if (done) return;
         listManager.SetActive(false);
-        id++;
         done = true;
         StartCoroutine(Feedback());
         SetNextButton(false);

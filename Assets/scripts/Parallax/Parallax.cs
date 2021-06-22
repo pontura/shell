@@ -52,4 +52,9 @@ public class Parallax : MonoBehaviour
 
         item.transform.localPosition = pos;
     }
+    public void Move()
+    {
+        speed = 0;
+        state = states.FORWARD;
+    }
 }
