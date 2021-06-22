@@ -93,7 +93,7 @@ public class GameScreen : ScreenMain
                     b.GetComponentInChildren<SimpleFeedback>().SetState(SimpleFeedback.states.WRONG, 1000);
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
         }
         Events.GotoTo("FeedbackScreen");
     }

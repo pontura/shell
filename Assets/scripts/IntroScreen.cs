@@ -8,6 +8,7 @@ public class IntroScreen : ScreenMain
     public Animator anim;
     public ButtonStandard readyButton;
     public HiscoreUI hiscoreUI;
+    public HiscoreScreen hiscoreScreen;
 
     private void Start()
     {
@@ -34,5 +35,9 @@ public class IntroScreen : ScreenMain
     public void AllOn()
     {
         anim.Play("all");
+    }
+    public void OpenHiscores()
+    {
+        hiscoreScreen.Init();
     }
 }
