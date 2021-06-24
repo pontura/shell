@@ -14,6 +14,12 @@ public class GameScreen : ScreenMain
     public GameObject tutorial;
     public ButtonStandard tutorialButton;
 
+    public Image carImage;
+    public Sprite[] carSprites;
+
+    public Image situacionImage;
+    public Sprite[] situacionesSprites;
+
     private void Start()
     {
         tutorial.SetActive(false);
@@ -26,11 +32,23 @@ public class GameScreen : ScreenMain
         tutorial.SetActive(false);
     }
     public override void Init() {
+        int contentID = Data.Instance.contentData.id;
+        situacionImage.sprite = situacionesSprites[contentID];
+        switch (contentID)
+        {
+            case 0:
+            case 1:
+                carImage.sprite = carSprites[contentID];
+                break;
+            default:
+                carImage.sprite = carSprites[2];
+                break;
+        }
         tutorial.SetActive(false);
         SetNextButton(false);
         listManager.ResetAll();
         done = false;
-        content = Data.Instance.contentData.content[Data.Instance.contentData.id];
+        content = Data.Instance.contentData.content[contentID];
         titleField.text = content.situacion;
 
         List<string> texts = new List<string>();
@@ -93,9 +111,11 @@ public class GameScreen : ScreenMain
             {
                 if (situacion.value == ProgressData.Result.BIEN)
                     b.GetComponentInChildren<SimpleFeedback>().SetState(SimpleFeedback.states.WRONG, 1000);
+                else
+                    Events.PlaySound("ui", "Sounds/feedback_neutro", false);
             }
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.35f);
         }
         Events.GotoTo("FeedbackScreen");
     }

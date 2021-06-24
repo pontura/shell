@@ -42,6 +42,7 @@ public class ListManager : MonoBehaviour
     {
         for (int i = 0; i < total; i++)
         {
+
             AddButton(id);
             id++;
             yield return new WaitForSeconds(delay);
@@ -50,6 +51,7 @@ public class ListManager : MonoBehaviour
     }
     void AddButton(int id)
     {
+        Events.PlaySound("ui", "Sounds/tick", false);
         ButtonStandard newButton = Instantiate(button, container);
         newButton.Init(id, OnEvent, eventToListen);
 
@@ -77,6 +79,8 @@ public class ListManager : MonoBehaviour
             buttons[id].SetActive(true);
         else
             buttons[id].SetActive(false);
+
+        Events.PlaySound("ui", "Sounds/beep", false);
 
         Onclicked(id);
     }

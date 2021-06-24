@@ -9,6 +9,7 @@ public class FeedbackScreen : ScreenMain
     public List<ProgressData.FeedbackData> wrong;
     public List<ProgressData.FeedbackData> innecesary;
     bool done;
+
     public override void Init()
     {
         done = false;
@@ -19,6 +20,8 @@ public class FeedbackScreen : ScreenMain
             CheckResult(data);
 
         ProcessFeedback();
+
+        Events.PlaySound("ui", "Sounds/popup", false); 
     }
     void CheckResult(ProgressData.FeedbackData data)
     {
@@ -53,5 +56,13 @@ public class FeedbackScreen : ScreenMain
             Events.GotoTo("Register");
        else
             Events.GotoTo("Map");
+        GetComponent<Animation>().Play("off");
+        Invoke("Reset", 0.5f);
+
+        Events.PlaySound("ui", "Sounds/popupClose", false); 
+    }
+    private void Reset()
+    {
+        Hide();
     }
 }

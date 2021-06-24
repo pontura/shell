@@ -59,6 +59,7 @@ public class MapScreen : ScreenMain
         mapAssetFront.transform.localPosition = pos;
 
         float i = 0;
+
         while (i < 1)
         {
             i += Time.deltaTime / fadeDuration;
@@ -68,6 +69,8 @@ public class MapScreen : ScreenMain
         if (!isFirst)
         {       
             yield return new WaitForSeconds(1);
+
+            Events.PlaySound("ui", "Sounds/car", false);
             car.SetState(true);
             Events.HideOldScreens();
 
@@ -81,6 +84,7 @@ public class MapScreen : ScreenMain
         }        
         string text = Data.Instance.contentData.content[Data.Instance.contentData.id].situacion;
         mapSignal.Init((Data.Instance.contentData.id + 1) + "/" + points.Length, text, car.transform.position);
+        Events.PlaySound("ui", "Sounds/alert", false);
         car.SetState(false);
         nextButton.gameObject.SetActive(true);      
     }

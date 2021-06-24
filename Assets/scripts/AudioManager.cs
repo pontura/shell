@@ -56,14 +56,15 @@ public class AudioManager : MonoBehaviour
     }
     AudioSource PlaySoundAndReturn(string sourceName, string audioName, bool loop)
     {
-        foreach(AudioSourceManager m in all)
+        Debug.Log("PlaySoundAndReturn " + sourceName + " name: " + audioName);
+        foreach (AudioSourceManager m in all)
         {
             if(m.sourceName == sourceName)
             {
                 m.audioSource.Stop();
                 m.audioSource.clip = Resources.Load<AudioClip>(audioName) as AudioClip;
                 if (audioName != "" && m.audioSource.clip == null)
-                    Events.Log("No hay audio para " + audioName);
+                    Debug.Log("No hay audio para " + audioName);
                 m.audioSource.Play();
                 m.audioSource.loop = loop;
                 return m.audioSource;
