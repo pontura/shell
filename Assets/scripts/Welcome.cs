@@ -5,18 +5,21 @@ using UnityEngine;
 public class Welcome : ScreenMain
 {
     public Animation anim;
+    public ButtonStandard button;
     bool isDone;
 
     public override void Init()
     {
         StartCoroutine(Timer());
+        button.Init(0, GotoNext, ListManager.EventToListen.RELEASE);
+        button.SetText("JUGAR!");
     }
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(3);
         Events.HideOldScreens();
     }
-    public void GotoNext()
+    public void GotoNext(int id)
     {
         if (isDone) return;
         isDone = true;
