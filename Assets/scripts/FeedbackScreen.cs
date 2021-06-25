@@ -29,21 +29,21 @@ public class FeedbackScreen : ScreenMain
             wrong.Add(data);
         else if(data.result == ProgressData.Result.MAL && data.selected)
             wrong.Add(data);
-        else if (data.result == ProgressData.Result.NEUTRO)
+        else if (data.result == ProgressData.Result.NEUTRO && data.selected)
             innecesary.Add(data);
     }
     void ProcessFeedback()
     {
         if (wrong.Count > 0)
         {
-            field.text += "<b>Es importante:</b> \n";
+            field.text += "<b>Acordate:</b> \n";
             foreach (ProgressData.FeedbackData data in wrong)
                 field.text += "- " + data.feedback + "\n\n";
         }
 
         if (innecesary.Count > 0)
         {
-            field.text += "<b>Y es innecesario:</b> \n";
+            field.text += "<b>Es innecesario:</b> \n";
             foreach (ProgressData.FeedbackData data in innecesary)
                 field.text += "- " + data.accion + "\n";
         }

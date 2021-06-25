@@ -23,10 +23,10 @@ public class Parallax : MonoBehaviour
     {
         if (state == states.FORWARD)
         {
-            if (speed < 1)
+            if (speed < 0.7f)
                 speed += Time.deltaTime / 2;
             else
-                speed = 1;
+                speed = 0.7f;
         }
         else
         {

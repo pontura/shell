@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7960503113336087370}
   - component: {fileID: 3216945410396394613}
   - component: {fileID: 3846259558190400992}
+  - component: {fileID: 155273671}
   m_Layer: 0
   m_Name: Data
   m_TagString: Untagged
@@ -87,9 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   url: https://docs.google.com/spreadsheets/d/e/2PACX-1vQhmIL5mhtKOgxdEdKZPFccTX82gUjgjb1SKPtbzPTe-kEsDUkA0JWNwFYgoM-1mdnWMWF369EAN0P8/pub?gid=0&single=true&output=tsv
   content: []
-  activeContent:
-    situacion: 
-    situaciones: []
+  id: 0
 --- !u!114 &3216945410396394613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,4 +113,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7d8cae0bd79dd4281addcfd95dbfab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedbackData: []
+  all: []
+  activeSituacion:
+    feedbackData: []
+--- !u!114 &155273671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afccae4cfa4d7b74d983b992d6b9077d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  all:
+  - sourceName: ui
+    audioSource: {fileID: 0}
+    volume: 1
+  playing: 0
+  playingSource: {fileID: 0}
