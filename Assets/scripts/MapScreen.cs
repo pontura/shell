@@ -60,6 +60,8 @@ public class MapScreen : ScreenMain
 
         float i = 0;
 
+        Events.PlaySound("ui2", "Sounds/fill", false);
+
         while (i < 1)
         {
             i += Time.deltaTime / fadeDuration;
@@ -94,6 +96,7 @@ public class MapScreen : ScreenMain
         Events.GotoTo("GameScreen");
         bgImage.fillOrigin = 1;
         float i = 1;
+        Events.PlaySound("ui2", "Sounds/fill", false);
         while (i > 0)
         {
             i -= Time.deltaTime / fadeDuration;

@@ -143,5 +143,8 @@ MonoBehaviour:
   - sourceName: ui
     audioSource: {fileID: 0}
     volume: 1
+  - sourceName: ui2
+    audioSource: {fileID: 0}
+    volume: 1
   playing: 0
   playingSource: {fileID: 0}

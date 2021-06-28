@@ -5,6 +5,8 @@ using System;
 
 public class ProgressData : MonoBehaviour
 {
+    public int score;
+
     public enum Result
     {
         BIEN,
@@ -27,6 +29,31 @@ public class ProgressData : MonoBehaviour
         public string accion;
         public string feedback;
     }
+    void ProcessFeedback(FeedbackData fd)
+    {
+        switch(fd.result)
+        {
+            case Result.BIEN:
+                if (fd.selected)
+                    score += 10;
+                else
+                    score -= 10;
+                break;
+            case Result.MAL:
+                if (fd.selected)
+                    score -= 10;
+                else
+                    score += 10;
+                break;
+            case Result.NEUTRO:
+                if (fd.selected)
+                    score -= 5;
+                else
+                    score += 2;
+                break;
+        }
+        if (score < 0)  score = 0;
+    }
     public void AddNewSituationResult()
     {
         activeSituacion = new Situacions();
@@ -41,6 +68,7 @@ public class ProgressData : MonoBehaviour
         fd.feedback = sd.feedback;
         fd.accion = sd.accion;
         activeSituacion.feedbackData.Add(fd);
+        ProcessFeedback(fd);
     }
     public List<FeedbackData> GetLastFeedBack()
     {

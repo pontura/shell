@@ -13,6 +13,7 @@ public class Welcome : ScreenMain
         StartCoroutine(Timer());
         button.Init(0, GotoNext, ListManager.EventToListen.RELEASE);
         button.SetText("JUGAR!");
+        Events.PlaySound("ui2", "Sounds/fill", false);
     }
     IEnumerator Timer()
     {

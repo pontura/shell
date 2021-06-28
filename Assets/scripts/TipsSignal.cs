@@ -26,6 +26,7 @@ public class TipsSignal : MonoBehaviour
 
     void Loop()
     {
+        Events.PlaySound("ui", "Sounds/feedback_neutro", false);
         panel.SetActive(true);
         Invoke("Reset", 6);
         field.text = Data.Instance.contentData.tips[id];
