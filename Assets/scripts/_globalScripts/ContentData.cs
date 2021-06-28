@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ContentData : DataLoader
 {
+    public string[] tips;
+
     public List<Content> content;
     public int id;
 

@@ -87,6 +87,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   url: https://docs.google.com/spreadsheets/d/e/2PACX-1vQhmIL5mhtKOgxdEdKZPFccTX82gUjgjb1SKPtbzPTe-kEsDUkA0JWNwFYgoM-1mdnWMWF369EAN0P8/pub?gid=0&single=true&output=tsv
+  tips:
+  - 'Un accidente es un hecho azaroso o fortuito, inesperado, que no podemos controlar
+    ni evitar. '
+  - "Un siniestro es un hecho que s\xED puede prevenirse y es evitable. "
+  - "En los siniestros existe una causa que lo provoca, como ocurre con la mayor\xEDa
+    de las situaciones tr\xE1gicas en el tr\xE1nsito. "
+  - "La movilidad sustentable implica que nos movamos y transitemos en los espacios
+    p\xFAblicos, ya sea como conductores o peatones, de forma respetuosa y eficiente"
+  - "La movilidad sustentable implica respeto por las personas y el entorno, adem\xE1s
+    de ser conscientes de nuestro impacto en el medio ambiente. "
+  - "El tr\xE1nsito es responsabilidad de todos y cada uno tiene que cumplir su parte."
   content: []
   id: 0
 --- !u!114 &3216945410396394613

@@ -9,6 +9,7 @@ public class IntroScreen : ScreenMain
     public ButtonStandard readyButton;
     public HiscoreUI hiscoreUI;
     public HiscoreScreen hiscoreScreen;
+    public TipsSignal tipsSignal;
 
     private void Start()
     {
@@ -19,12 +20,18 @@ public class IntroScreen : ScreenMain
     {
         base.Init();
         hiscoreUI.Init();
+        Invoke("TipsOn", 3);
+    }
+    void TipsOn()
+    {
+        tipsSignal.Init();
     }
     public void OnClicked( int id )
     {
         anim.Play("off");
         parallax.StopInFade();
         Events.GotoTo("Welcome");
+        tipsSignal.SetOff();
     }
     public void ShowBackgroundOnly()
     {
