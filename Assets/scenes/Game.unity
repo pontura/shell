@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,7 +156,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -35.6, y: -28.34}
-  m_SizeDelta: {x: 404, y: 338}
+  m_SizeDelta: {x: 340, y: 330}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3305697
 MonoBehaviour:
@@ -1001,6 +1001,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!1 &167961820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1290,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!1 &200242473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,6 +3706,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!1 &673994439
 GameObject:
   m_ObjectHideFlags: 0
@@ -5192,6 +5195,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!224 &1087859927
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8574,7 +8578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -296, y: 89.2}
+  m_AnchoredPosition: {x: -247, y: 89.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &1953509608
@@ -8706,7 +8710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.66, y: 140.5}
+  m_AnchoredPosition: {x: 17.66, y: 35}
   m_SizeDelta: {x: 728, y: 417}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979457022
@@ -8815,6 +8819,54 @@ PrefabInstance:
     - target: {fileID: 4000012892830758, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960503113336087370, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: tips.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960503113336087370, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: tips.Array.data[0]
+      value: 'Un accidente es un hecho inesperado que no podemos controlar. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960503113336087370, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: tips.Array.data[1]
+      value: 'Un siniestro puede prevenirse y es evitable. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960503113336087370, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: tips.Array.data[2]
+      value: En los siniestros existe una causa que lo provoca.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960503113336087370, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: tips.Array.data[3]
+      value: La movilidad sustentable implica que nos movamos y transitemos de forma
+        respetuosa.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960503113336087370, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: tips.Array.data[4]
+      value: "La movilidad sustentable se da en los espacios p\xFAblicos, como conductores
+        o peatones. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960503113336087370, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: tips.Array.data[5]
+      value: La movilidad sustentable implica respeto por las personas y el entorno.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960503113336087370, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: tips.Array.data[6]
+      value: La movilidad sustentable nos hace conscientes de nuestro impacto en
+        el medio ambiente.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960503113336087370, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: tips.Array.data[7]
+      value: "El tr\xE1nsito es responsabilidad de todos."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
@@ -9507,7 +9559,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 26
+    m_MaxSize: 20
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -9542,7 +9594,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -35.86, y: -30.513}
-  m_SizeDelta: {x: 291.7641, y: 161.02542}
+  m_SizeDelta: {x: 200, y: 161.02542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2096131161
 GameObject:
