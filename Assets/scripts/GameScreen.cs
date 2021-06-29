@@ -46,6 +46,7 @@ public class GameScreen : ScreenMain
         }
         tutorial.SetActive(false);
         SetNextButton(false);
+        
         listManager.ResetAll();
         done = false;
         content = Data.Instance.contentData.content[contentID];
@@ -67,6 +68,7 @@ public class GameScreen : ScreenMain
             tutorialDone = true;
         }
         listManager.Init(content.situaciones, OnClicked);
+        NextButton.SetActive(true);
     }
     void OnClicked(int id)
     {
@@ -78,6 +80,7 @@ public class GameScreen : ScreenMain
                 return;
             }
         SetNextButton(false);
+        NextButton.SetActive(false);
     }
     public void Ready(int id)
     {

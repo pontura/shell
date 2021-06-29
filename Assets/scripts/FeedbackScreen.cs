@@ -9,9 +9,12 @@ public class FeedbackScreen : ScreenMain
     public List<ProgressData.FeedbackData> wrong;
     public List<ProgressData.FeedbackData> innecesary;
     bool done;
+    public ButtonStandard buttonOk;
 
     public override void Init()
     {
+        buttonOk.Init(0, Next, ListManager.EventToListen.RELEASE);
+
         done = false;
         wrong.Clear();
         innecesary.Clear();
@@ -36,19 +39,24 @@ public class FeedbackScreen : ScreenMain
     {
         if (wrong.Count > 0)
         {
-            field.text += "<b>Acordate:</b> \n";
+            field.text += "<b>Recordá:</b>";
             foreach (ProgressData.FeedbackData data in wrong)
-                field.text += "- " + data.feedback + "\n\n";
+                field.text += "\n- " + data.feedback + "\n";
         }
 
         if (innecesary.Count > 0)
         {
-            field.text += "<b>Es innecesario:</b> \n";
+            field.text += "\n<b>No hace falta:</b>";
             foreach (ProgressData.FeedbackData data in innecesary)
-                field.text += "- " + data.accion + "\n";
+                field.text += "\n- " + data.accion;
+        }
+        if (field.text == "")
+        {
+            field.text = "\n\n\n<b>¡Perfecto!</b>";
+            Data.Instance.progressData.score += 15;
         }
     }
-    public void Next()
+    public void Next(int buttonID)
     {
         if (done) return;
         done = true;
