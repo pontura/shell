@@ -1001,7 +1001,6 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
-  m_ShouldActivateOnSelect: 1
 --- !u!1 &167961820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1289,6 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
-  m_ShouldActivateOnSelect: 1
 --- !u!1 &200242473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,14 +2354,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 51f13fd25c8f97d4c809d167f4e718e5, type: 3}
   - {fileID: 21300000, guid: e5dd77afbfb88b743b280d0a95a76334, type: 3}
   - {fileID: 21300000, guid: 0ad5ce1983163cf4db363d10a251a080, type: 3}
-  - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
+  - {fileID: 21300000, guid: 43b2d37bb01474d448585d3e89d68201, type: 3}
   - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
   - {fileID: 21300000, guid: 77baea8dba23ff64fba7bde8f9f9c56b, type: 3}
-  - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
-  - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
-  - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
-  - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
-  - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
+  - {fileID: 21300000, guid: 6eb234052907596499574b00eb45c4fa, type: 3}
+  - {fileID: 21300000, guid: 1d79bcb250a59f349b7f6e4badcdea77, type: 3}
+  - {fileID: 21300000, guid: 40716b252e9310744b4d109410ab67e4, type: 3}
+  - {fileID: 21300000, guid: a9cda8c5b1e5cf54d95588fa5668b3b8, type: 3}
+  - {fileID: 21300000, guid: f9efe3a2b3041b54fa5b8519c4105b54, type: 3}
   - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
   - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
 --- !u!111 &380673702
@@ -3706,7 +3704,6 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
-  m_ShouldActivateOnSelect: 1
 --- !u!1 &673994439
 GameObject:
   m_ObjectHideFlags: 0
@@ -5195,7 +5192,6 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
-  m_ShouldActivateOnSelect: 1
 --- !u!224 &1087859927
 RectTransform:
   m_ObjectHideFlags: 0
