@@ -2264,7 +2264,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 54bf5071ec748354da663ad720076ee4, type: 3}
   - {fileID: 21300000, guid: 5147edeac1602d9409395dfc2fe7125e, type: 3}
   - {fileID: 21300000, guid: ea7795e26f4815c48937034b1f58ccf1, type: 3}
+  - {fileID: 21300000, guid: ea7795e26f4815c48937034b1f58ccf1, type: 3}
   - {fileID: 21300000, guid: 4cbf04ebb60b1024eab2ce823c360dd3, type: 3}
+  - {fileID: 21300000, guid: ea7795e26f4815c48937034b1f58ccf1, type: 3}
+  - {fileID: 21300000, guid: ea7795e26f4815c48937034b1f58ccf1, type: 3}
+  - {fileID: 21300000, guid: f90c862e0f369e144ab15d3f45614036, type: 3}
+  - {fileID: 21300000, guid: ea7795e26f4815c48937034b1f58ccf1, type: 3}
+  - {fileID: 21300000, guid: ea7795e26f4815c48937034b1f58ccf1, type: 3}
+  - {fileID: 21300000, guid: ea7795e26f4815c48937034b1f58ccf1, type: 3}
+  - {fileID: 21300000, guid: 086eacdedc76d704598cc1f1c0195f6d, type: 3}
+  - {fileID: 21300000, guid: fd2db49078d90ba4bbe13c66bef6eed1, type: 3}
+  - {fileID: 21300000, guid: b0b02903027bd644d959e8f7637983e6, type: 3}
   situacionImage: {fileID: 923694603}
   situacionesSprites:
   - {fileID: 21300000, guid: db344d00747b60b4da07503e9bcc3f92, type: 3}

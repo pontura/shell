@@ -34,19 +34,8 @@ public class GameScreen : ScreenMain
     public override void Init() {
         int contentID = Data.Instance.contentData.id;
         situacionImage.sprite = situacionesSprites[contentID];
-        switch (contentID)
-        {
-            case 0:
-            case 1:
-                carImage.sprite = carSprites[contentID];
-                break;
-            case 4:
-                carImage.sprite = carSprites[3];
-                break;
-            default:
-                carImage.sprite = carSprites[2];
-                break;
-        }
+        carImage.sprite = carSprites[contentID];
+
         tutorial.SetActive(false);
         SetNextButton(false);
         
