@@ -40,6 +40,9 @@ public class GameScreen : ScreenMain
             case 1:
                 carImage.sprite = carSprites[contentID];
                 break;
+            case 4:
+                carImage.sprite = carSprites[3];
+                break;
             default:
                 carImage.sprite = carSprites[2];
                 break;

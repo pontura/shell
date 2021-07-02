@@ -7,12 +7,14 @@ public class HiscoreLine : MonoBehaviour
 {
     public Text puestoField;
     public Text field;
+    public Text colegioField;
     public Text scoreField;
 
     public void Init(int id, DatabaseManager.UsersData data)
     {
         puestoField.text = id.ToString();
-        field.text = data.nombre + " " + data.apellido + " (" + data.colegio + ")";
+        field.text = data.nombre + " " + data.apellido;
+        colegioField.text = data.colegio;
         scoreField.text = data.score.ToString();
     }
 }
