@@ -2279,8 +2279,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 40716b252e9310744b4d109410ab67e4, type: 3}
   - {fileID: 21300000, guid: a9cda8c5b1e5cf54d95588fa5668b3b8, type: 3}
   - {fileID: 21300000, guid: f9efe3a2b3041b54fa5b8519c4105b54, type: 3}
-  - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
-  - {fileID: 21300000, guid: 69fd22a5b5fb1d64eb8b6620396a30ab, type: 3}
+  - {fileID: 21300000, guid: 97e244a716b5ac64cbe812be9558a8c2, type: 3}
+  - {fileID: 21300000, guid: d448f58555f726b4fa7485a7aabddd47, type: 3}
 --- !u!111 &380673702
 Animation:
   m_ObjectHideFlags: 0
