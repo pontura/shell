@@ -19,6 +19,7 @@ public class GameScreen : ScreenMain
 
     public Image situacionImage;
     public Sprite[] situacionesSprites;
+    public ProgressBar progressBar;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class GameScreen : ScreenMain
         tutorial.SetActive(false);
     }
     public override void Init() {
+        progressBar.Refresh();
         int contentID = Data.Instance.contentData.id;
         situacionImage.sprite = situacionesSprites[contentID];
         carImage.sprite = carSprites[contentID];
