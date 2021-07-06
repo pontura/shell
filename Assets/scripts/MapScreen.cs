@@ -24,6 +24,16 @@ public class MapScreen : ScreenMain
         nextButton.gameObject.SetActive(false);
         foreach (GameObject go in points)
             go.GetComponent<Image>().enabled = false;
+   
+        Events.ResetApp += ResetApp;
+    }
+    private void OnDestroy()
+    {
+        Events.ResetApp -= ResetApp;
+    }
+    private void ResetApp()
+    {
+        hasStarted = false;
     }
     void OnDone(int id)
     {

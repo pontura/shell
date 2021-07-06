@@ -60,8 +60,16 @@ public class FeedbackScreen : ScreenMain
     {
         if (done) return;
         done = true;
-        if(Data.Instance.contentData.id >= Data.Instance.contentData.content.Count-1)
-            Events.GotoTo("Register");
+        if (Data.Instance.contentData.id >= Data.Instance.contentData.content.Count - 1)
+        {
+            if (Data.Instance.databaseManager.userData.nombre != "")
+            {
+                Data.Instance.databaseManager.SaveNewScoreToExistingUser();
+                Events.GotoTo("Congrats");
+            }
+            else
+                Events.GotoTo("Register");
+        }
        else
             Events.GotoTo("Map");
         GetComponent<Animation>().Play("off");

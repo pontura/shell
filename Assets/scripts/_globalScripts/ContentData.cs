@@ -27,6 +27,18 @@ public class ContentData : DataLoader
     {
         id++;
     }
+    private void Start()
+    {
+        Events.ResetApp += ResetApp;
+    }
+    private void OnDestroy()
+    {
+        Events.ResetApp -= ResetApp;
+    }
+    private void ResetApp()
+    {
+        id = 0;
+    }
     public override void Reset()
     {
         content.Clear();

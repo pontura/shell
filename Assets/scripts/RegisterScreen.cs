@@ -34,12 +34,7 @@ public class RegisterScreen : ScreenMain
         {
             FeedbcakText("Escribe tu colegio real"); return;
         }
-        DatabaseManager.UsersData data = new DatabaseManager.UsersData();
-        data.nombre = nombreField.text;
-        data.apellido = apellidoField.text;
-        data.colegio = colegioField.text;
-        data.score = Data.Instance.progressData.score;
-        Data.Instance.databaseManager.SaveScore(data);
+        Data.Instance.databaseManager.SaveNewScore(nombreField.text, apellidoField.text, colegioField.text);
     }
     void FeedbcakText(string text)
     {

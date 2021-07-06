@@ -41,7 +41,11 @@ public class IntroScreen : ScreenMain
     }
     public void AllOn()
     {
+        gameObject.SetActive(true);
         anim.Play("all");
+        parallax.Move();
+        hiscoreUI.LoadHiscores();
+        Events.ResetApp();
     }
     public void OpenHiscores()
     {

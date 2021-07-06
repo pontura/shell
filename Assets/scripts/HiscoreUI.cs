@@ -15,14 +15,15 @@ public class HiscoreUI : MonoBehaviour
     }
     void LoopTillLoaded()
     {
-        if (Data.Instance.databaseManager.hiscore.all.Length == 0)
+        if (Data.Instance.databaseManager.hiscore.all.Count == 0)
             Invoke("LoopTillLoaded", 0.5f);
         else
             LoadHiscores();
     }
-    void LoadHiscores()
+    public void LoadHiscores()
     {
         int puesto = 1;
+        Utils.RemoveAllChildsIn(container);
         foreach (DatabaseManager.UsersData data in Data.Instance.databaseManager.hiscore.all)
         {
             if (puesto > totalResults)

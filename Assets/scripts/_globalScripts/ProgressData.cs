@@ -29,6 +29,20 @@ public class ProgressData : MonoBehaviour
         public string accion;
         public string feedback;
     }
+    private void Start()
+    {
+        Events.ResetApp += ResetApp;
+    }
+    private void OnDestroy()
+    {
+        Events.ResetApp -= ResetApp;
+    }
+    private void ResetApp()
+    {
+        all.Clear();
+        activeSituacion = null;
+        score = 0;
+    }
     void ProcessFeedback(FeedbackData fd)
     {
         switch(fd.result)

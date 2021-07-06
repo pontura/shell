@@ -13,7 +13,7 @@ public class DatabaseManager : MonoBehaviour
     [Serializable]
     public class HiscoreData
     {
-        public UsersData[] all;
+        public List<UsersData> all;
     }
 
     [Serializable]
@@ -55,6 +55,20 @@ public class DatabaseManager : MonoBehaviour
     {
         StartCoroutine(LoadJson(url + "getHiscore.php", OnHiscoreDone));
     }
+    public void SaveNewScoreToExistingUser()
+    {
+        userData.score = Data.Instance.progressData.score;
+        SaveScore(userData);
+    }
+    public void SaveNewScore(string name, string lastName, string school)
+    {
+        UsersData data = new UsersData();
+        data.nombre = name;
+        data.apellido = lastName;
+        data.colegio = school;
+        data.score = Data.Instance.progressData.score;
+        SaveScore(data);
+    }
     public void SaveScore(UsersData userdata)
     {
         userdata.id = userData.id;
@@ -74,6 +88,7 @@ public class DatabaseManager : MonoBehaviour
     {
         print("result " + result);
         userData.id = int.Parse(result);
+        RefreshHiscores();
         SetUserData();
     }
     IEnumerator LoadJson(string url, System.Action<string> OnDone)
@@ -94,5 +109,17 @@ public class DatabaseManager : MonoBehaviour
     void OnHiscoreDone(string result)
     {
         hiscore = JsonUtility.FromJson<HiscoreData>(result);
+    }
+    void RefreshHiscores()
+    {
+        foreach(UsersData uData in  hiscore.all)
+        {
+            if(uData.apellido == userData.apellido && uData.nombre == userData.nombre)
+            {
+                uData.score = userData.score;
+            }
+        }
+        hiscore.all.Sort((p1, p2) => p1.score.CompareTo(p2.score));
+        hiscore.all.Reverse();
     }
 }

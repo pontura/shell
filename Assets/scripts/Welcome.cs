@@ -10,6 +10,7 @@ public class Welcome : ScreenMain
 
     public override void Init()
     {
+        isDone = false;
         StartCoroutine(Timer());
         button.Init(0, GotoNext, ListManager.EventToListen.RELEASE);
         button.SetText("JUGAR!");
