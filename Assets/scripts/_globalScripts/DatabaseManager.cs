@@ -112,13 +112,18 @@ public class DatabaseManager : MonoBehaviour
     }
     void RefreshHiscores()
     {
+        bool exists = false;
         foreach(UsersData uData in  hiscore.all)
         {
             if(uData.apellido == userData.apellido && uData.nombre == userData.nombre)
             {
                 uData.score = userData.score;
+                exists = true;
             }
         }
+        if (!exists)
+            hiscore.all.Add(userData);
+
         hiscore.all.Sort((p1, p2) => p1.score.CompareTo(p2.score));
         hiscore.all.Reverse();
     }
