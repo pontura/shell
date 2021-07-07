@@ -35,6 +35,7 @@ public class RegisterScreen : ScreenMain
             FeedbcakText("Escribe tu colegio real"); return;
         }
         Data.Instance.databaseManager.SaveNewScore(nombreField.text, apellidoField.text, colegioField.text);
+        Events.GotoTo("Congrats");
     }
     void FeedbcakText(string text)
     {
