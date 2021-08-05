@@ -39,20 +39,20 @@ public class FeedbackScreen : ScreenMain
     {
         if (wrong.Count > 0)
         {
-            field.text += "<b>Recordá:</b>";
+            field.text += "<b><color=#dd1d21>RECORDÁ:</color></b>\n";
             foreach (ProgressData.FeedbackData data in wrong)
                 field.text += "\n- " + data.feedback + "\n";
         }
 
         if (innecesary.Count > 0)
         {
-            field.text += "\n<b>No hace falta:</b>";
+            field.text += "\n<b><color=#e3ba07>! NO HACE FALTA:</color></b> \n ";
             foreach (ProgressData.FeedbackData data in innecesary)
                 field.text += "\n- " + data.accion;
         }
         if (field.text == "")
         {
-            field.text = "\n\n\n<b>¡Perfecto!</b>";
+            field.text = "\n\n\n<b><color=#63aa89>¡PERFECTO!</color></b>";
             Data.Instance.progressData.score += 15;
         }
     }
