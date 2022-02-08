@@ -10,6 +10,7 @@ public class HiscoreUI : MonoBehaviour
 
     public void Init()
     {
+        return;
         Utils.RemoveAllChildsIn(container);
         LoopTillLoaded();
     }

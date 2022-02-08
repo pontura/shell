@@ -34,7 +34,7 @@ public class GameScreen : ScreenMain
     }
     public override void Init() {
         progressBar.Refresh();
-        int contentID = Data.Instance.contentData.id;
+        int contentID = Data.Instance.contentData.GetPoint();
         situacionImage.sprite = situacionesSprites[contentID];
         carImage.sprite = carSprites[contentID];
 

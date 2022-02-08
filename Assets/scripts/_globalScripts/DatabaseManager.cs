@@ -6,7 +6,7 @@ using System;
 public class DatabaseManager : MonoBehaviour
 {
     string hashPassword = "pontura";
-    string url = "http://shellconcienciavial.com/";
+  //  string url = "http://shellconcienciavial.com/";
     public UsersData userData;
     public HiscoreData hiscore;
 
@@ -27,8 +27,8 @@ public class DatabaseManager : MonoBehaviour
     }
     void Awake()
     {
-        GetUserData();
-        GetHiscore();
+      //  GetUserData();
+       // GetHiscore();
     }
     private void GetUserData()
     {
@@ -53,7 +53,7 @@ public class DatabaseManager : MonoBehaviour
     }
     public void GetHiscore()
     {
-        StartCoroutine(LoadJson(url + "getHiscore.php", OnHiscoreDone));
+      //  StartCoroutine(LoadJson(url + "getHiscore.php", OnHiscoreDone));
     }
     public void SaveNewScoreToExistingUser()
     {
@@ -71,41 +71,42 @@ public class DatabaseManager : MonoBehaviour
     }
     public void SaveScore(UsersData userdata)
     {
-        userdata.id = userData.id;
-        this.userData = userdata;
-        string hash = Md5Test.Md5Sum(userdata.nombre + userdata.score + hashPassword);
-        string urlReal = url
-            + "setUser.php?nombre=" + userdata.nombre
-            + "&apellido=" + userdata.apellido
-            + "&colegio=" + userdata.colegio
-            + "&score=" + userdata.score
-            + "&id=" + userdata.id
-            + "&hash=" + hash;
-        print("save: " + urlReal);
-        StartCoroutine(LoadJson(urlReal, OnUserDataSaved));
+        //userdata.id = userData.id;
+        //this.userData = userdata;
+        //string hash = Md5Test.Md5Sum(userdata.nombre + userdata.score + hashPassword);
+        //string urlReal = url
+        //    + "setUser.php?nombre=" + userdata.nombre
+        //    + "&apellido=" + userdata.apellido
+        //    + "&colegio=" + userdata.colegio
+        //    + "&score=" + userdata.score
+        //    + "&id=" + userdata.id
+        //    + "&hash=" + hash;
+        //print("save: " + urlReal);
+        //StartCoroutine(LoadJson(urlReal, OnUserDataSaved));
+        OnUserDataSaved("ok");
     }
     void OnUserDataSaved(string result)
     {
-        print("result " + result);
-        userData.id = int.Parse(result);
-        RefreshHiscores();
-        SetUserData();
+        //print("result " + result);
+        //userData.id = int.Parse(result);
+        //RefreshHiscores();
+        //SetUserData();
     }
-    IEnumerator LoadJson(string url, System.Action<string> OnDone)
-    {
-        print(url);
-        WWW www = new WWW(url);
-        yield return www;
-        if (www.error == null)
-        {
-            if (OnDone != null)
-                OnDone(www.text);
-        }
-        else
-        {
-            Debug.Log("ERROR: " + www.error);
-        }
-    }
+    //IEnumerator LoadJson(string url, System.Action<string> OnDone)
+    //{
+    //    print(url);
+    //    WWW www = new WWW(url);
+    //    yield return www;
+    //    if (www.error == null)
+    //    {
+    //        if (OnDone != null)
+    //            OnDone(www.text);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("ERROR: " + www.error);
+    //    }
+    //}
     void OnHiscoreDone(string result)
     {
         hiscore = JsonUtility.FromJson<HiscoreData>(result);

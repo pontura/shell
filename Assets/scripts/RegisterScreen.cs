@@ -13,6 +13,7 @@ public class RegisterScreen : ScreenMain
 
     public override void Init()
     {
+        return;
         feedbackField.text = "";
         nombreField.text = Data.Instance.databaseManager.userData.nombre;
         apellidoField.text = Data.Instance.databaseManager.userData.apellido;

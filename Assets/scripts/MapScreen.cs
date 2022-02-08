@@ -16,6 +16,7 @@ public class MapScreen : ScreenMain
     public MapSignal mapSignal;
     bool hasStarted;
     public ButtonStandard nextButton;
+    public List<int> ids;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class MapScreen : ScreenMain
    
         Events.ResetApp += ResetApp;
     }
+   
     private void OnDestroy()
     {
         Events.ResetApp -= ResetApp;
@@ -61,8 +63,8 @@ public class MapScreen : ScreenMain
         car.SetState(false);
         bgImage.fillOrigin = 0;
 
-        float from = (points[Data.Instance.contentData.id].transform.localPosition.x* -1) - posOffset;
-        float posTo = (points[Data.Instance.contentData.id + 1].transform.localPosition.x * -1) - posOffset;
+        float from = (points[Data.Instance.contentData.GetPoint()].transform.localPosition.x* -1) - posOffset;
+        float posTo = (points[Data.Instance.contentData.GetNextPoint()].transform.localPosition.x * -1) - posOffset;
         
         Vector2 pos = new Vector2(from, mapAsset.transform.localPosition.y);
         mapAsset.transform.localPosition = pos;
@@ -94,8 +96,8 @@ public class MapScreen : ScreenMain
                 yield return new WaitForEndOfFrame();
             }
         }        
-        string text = Data.Instance.contentData.content[Data.Instance.contentData.id].situacion;
-        mapSignal.Init((Data.Instance.contentData.id + 1) + "/" + points.Length, text, car.transform.position);
+        string text = Data.Instance.contentData.content[Data.Instance.contentData.GetPoint()].situacion;
+        mapSignal.Init((Data.Instance.contentData.num+1) + "/" + Data.Instance.contentData.ids.Count, text, car.transform.position);
         Events.PlaySound("ui", "Sounds/alert", false);
         car.SetState(false);
         nextButton.gameObject.SetActive(true);      

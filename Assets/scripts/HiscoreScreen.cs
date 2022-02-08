@@ -9,6 +9,7 @@ public class HiscoreScreen : MonoBehaviour
 
     public void Init()
     {
+        return;
         panel.SetActive(true);
         hiscoreUI.Init();
     }

@@ -5,9 +5,12 @@ using UnityEngine;
 public class ContentData : DataLoader
 {
     public string[] tips;
+    public List<int> ids;
+ 
 
     public List<Content> content;
-    public int id;
+    [SerializeField] int id;
+    public int num;
 
     [System.Serializable]
     public class Content
@@ -23,13 +26,31 @@ public class ContentData : DataLoader
         public string feedback;
         public string feedbackNo;
     }
+    void SetPoints()
+    {
+        ids.Clear();
+       // ids.Add(0);
+        ids.Add(Random.Range(0, 3));
+        ids.Add(Random.Range(4, 8));
+        ids.Add(Random.Range(9, 12));
+    }
     public void Next()
     {
-        id++;
+        id = GetPoint();
+        num++;
+    }
+    public int GetPoint()
+    {
+        return ids[num];
+    }
+    public int GetNextPoint()
+    {
+        return ids[num+1];
     }
     private void Start()
     {
         Events.ResetApp += ResetApp;
+        ResetApp();
     }
     private void OnDestroy()
     {
@@ -37,7 +58,9 @@ public class ContentData : DataLoader
     }
     private void ResetApp()
     {
-        id = 0;
+        num = 0;
+        SetPoints();
+        id = GetPoint();
     }
     public override void Reset()
     {

@@ -60,15 +60,15 @@ public class FeedbackScreen : ScreenMain
     {
         if (done) return;
         done = true;
-        if (Data.Instance.contentData.id >= Data.Instance.contentData.content.Count - 1)
+        if (Data.Instance.contentData.num >= Data.Instance.contentData.ids.Count-1)
         {
-            if (Data.Instance.databaseManager.userData.nombre != "")
-            {
+            //if (Data.Instance.databaseManager.userData.nombre != "")
+            //{
                 Data.Instance.databaseManager.SaveNewScoreToExistingUser();
                 Events.GotoTo("Congrats");
-            }
-            else
-                Events.GotoTo("Register");
+            //}
+            //else
+            //    Events.GotoTo("Register");
         }
        else
             Events.GotoTo("Map");

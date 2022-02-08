@@ -7,8 +7,8 @@ public class IntroScreen : ScreenMain
     public Parallax parallax;
     public Animator anim;
     public ButtonStandard readyButton;
-    public HiscoreUI hiscoreUI;
-    public HiscoreScreen hiscoreScreen;
+  ///  public HiscoreUI hiscoreUI;
+   // public HiscoreScreen hiscoreScreen;
     public TipsSignal tipsSignal;
 
     private void Start()
@@ -19,7 +19,7 @@ public class IntroScreen : ScreenMain
     public override void Init()
     {
         base.Init();
-        hiscoreUI.Init();
+        //hiscoreUI.Init();
         Invoke("TipsOn", 3);
     }
     void TipsOn()
@@ -44,11 +44,11 @@ public class IntroScreen : ScreenMain
         gameObject.SetActive(true);
         anim.Play("all");
         parallax.Move();
-        hiscoreUI.LoadHiscores();
+     //   hiscoreUI.LoadHiscores();
         Events.ResetApp();
     }
     public void OpenHiscores()
     {
-        hiscoreScreen.Init();
+       // hiscoreScreen.Init();
     }
 }
