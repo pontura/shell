@@ -6,7 +6,7 @@ using System;
 public class DatabaseManager : MonoBehaviour
 {
     string hashPassword = "pontura";
-    string url = "http://www.pontura.com/shell/";
+    string url = "http://shellconcienciavial.com/";
     public UsersData userData;
     public HiscoreData hiscore;
 
